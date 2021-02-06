@@ -1,0 +1,18 @@
+<%- include("partials/header.ejs"); %>
+
+<h1>Home</h1>
+
+<p> <%= homeStartingContent %> </p>
+
+<% posts.forEach(function(post){ %>
+<%    if (post.content.length > 100){ %>
+<%        post.content = post.content.slice(0,101) + "..." %>
+<%    } %>
+<% let nav = "/posts/" + post.title; %>
+<h1> <%= post.title; %> </h1>
+<p>  <%= post.content; %>  <a href= <%= nav %> >Read More </a>  </p>
+
+<% }); %>
+
+<%- include("partials/footer.ejs"); %>
+
